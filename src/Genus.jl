@@ -16,3 +16,8 @@ function genus(db, label::String)
   end
   return _genus_from_record(db, res[1])
 end
+
+function genera(db; kw...)
+  res = LMFDBLite.search(db, "lat_genera"; kw...)
+  return _genus_from_record.(Ref(db), res)
+end
