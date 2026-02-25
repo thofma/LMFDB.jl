@@ -12,4 +12,3 @@ LMFDBLite = {rev = "main", url = "https://github.com/thofma/LMFDBLite.jl"}
 
 [compat]
 Hecke = "0.39.12"
-LMFDBLite = "0.1.0"
