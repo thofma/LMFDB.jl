@@ -1,17 +1,8 @@
 module LMFDB
 
-"""
-    hello(who::String)
+using Hecke, LMFDBLite
 
-Return "Hello, `who`".
-"""
-hello(who::String) = "Hello, $who"
-
-"""
-    domath(x::Number)
-
-Return `x + 5`.
-"""
-domath(x::Number) = x + 5
+include("Lattice.jl")
+include("Genus.jl")
 
 end # module LMFDB
