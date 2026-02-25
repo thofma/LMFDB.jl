@@ -1,7 +1,8 @@
 module LMFDB
 
-using Hecke, LMFDBLite
+using Hecke
 
+include("LMFDBLite/LMFDBLite.jl")
 include("Lattice.jl")
 include("Genus.jl")
 
