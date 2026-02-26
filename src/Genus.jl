@@ -8,8 +8,13 @@ function _genera_from_records(db, records::Vector{<:NamedTuple})
   for record in records
     label = record[:label]
     repsG = filter(r -> get_attribute(r, :lmfdb_genus_label) == label, reps)
-    G = Hecke.genus(repsG[1])
-    set_attribute!(G, :representatives => repsG)
+    r = Int(record[:rank])
+    rep = integer_lattice(; gram = matrix(ZZ, r, r, record[:rep]))
+    G = Hecke.genus(rep)
+    if length(repsG) > 0
+      @assert length(repsG) == record[:class_number]
+      set_attribute!(G, :representatives => repsG)
+    end
     push!(res, G)
   end
   return res
