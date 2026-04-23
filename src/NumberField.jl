@@ -7,7 +7,7 @@ function _number_field_from_record(record::NamedTuple)
   return K
 end
 
-function Hecke.number_field(db, label::String)
+function Hecke.number_field(db::LMFDBConnection, label::String)
   res = LMFDBLite.search(db, "nf_fields"; label = label)
   @assert length(res) <= 1
   if length(res) == 0
